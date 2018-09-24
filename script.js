@@ -38,11 +38,12 @@ addBtn.addEventListener('click', function(e) {
 })
 
 function renderList() {
+    let noteDisplay = document.getElementById('noteList');
+    noteDisplay.innerHTML = "";
     if (noteList.length!=0) {
         for (let i = 0; i < noteList.length; i++) {
             let name = noteList[i].name;
             let id = noteList[i].id;
-            let noteDisplay = document.getElementById('noteList');
             let noteNode = document.createElement('li');
             noteNode.innerHTML = name;
             noteNode.setAttribute("id",id);
