@@ -31,7 +31,6 @@ addBtn.addEventListener('click', function(e) {
         addNote(note);
         clear('title');
         clear('content');
-        renderList();
     } else {
         alert("Please fill in title and content to add.")
     }
@@ -42,8 +41,13 @@ function renderList() {
     if (noteList.length!=0) {
         for (let i = 0; i < noteList.length; i++) {
             let name = noteList[i].name;
-            let content = noteList[i].description;
-            console.log(name + " " + content);
+            let id = noteList[i].id;
+            let noteDisplay = document.getElementById('noteList');
+            let noteNode = document.createElement('li');
+            noteNode.innerHTML = name;
+            noteNode.setAttribute("id",id);
+            noteNode.setAttribute("class", "list");
+            noteDisplay.append(noteNode);
         }
     }
 }
@@ -55,10 +59,7 @@ function clear(id) {
 // Adds note to noteList array & the page
 function addNote(note) {
    noteList.push(note);
-
-   for (let i = 0; i < noteList.length; i++) {
-
-   }
+   renderList();
 }
 
 
