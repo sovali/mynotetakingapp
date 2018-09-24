@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Notes</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,15 +17,30 @@
           <input placeholder="Search your notes" type="text" name="fname"><br>
       </div>
     </div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 col-sm-2">
-            <h3 class="text-center"> Note List </h3> 
-            </div>
-            <div class="col-md-2 col-sm-2">
-            <h3 class="text-center"> New Note </h3></div>
-        </div>
-      </div>
 
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-center"> Note List </h3> 
+                <div id="noteList">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center"> Current Note</h3>
+                <div class="text-center">Please select a note.</div>
+            </div>
+            
+            <div id= "newNote" class="col-md-4">
+                <h3 class="text-center"> New Note </h3>
+                    <div class="text-center col-md-4">
+                    <label for="title"> Title </label><br>
+                    <input id="title" type="text" name="title"><br>
+                    <label for="content"> Content </label> <br>
+                    <textarea rows="5" cols="50" id="content" type="text" name="content"></textarea><br>
+                    <button id="addBtn">Add</button>
+            </div>
+            </div>
+        </div> 
+    </div>
+    <script src='script.js'></script>
 </body>
-<script type='text/javascript' src='script.js'></script>
 </html>
