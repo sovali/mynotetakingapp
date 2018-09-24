@@ -37,6 +37,13 @@ addBtn.addEventListener('click', function(e) {
     return;
 })
 
+// add event listener to search button
+
+
+function renderResults() {
+
+}
+
 function renderList() {
     let noteDisplay = document.getElementById('noteList');
     noteDisplay.innerHTML = "";
@@ -44,13 +51,33 @@ function renderList() {
         for (let i = 0; i < noteList.length; i++) {
             let name = noteList[i].name;
             let id = noteList[i].id;
+
+            let delButton = document.createElement('button');
+            delButton.innerHTML = "Remove";
+            delButton.setAttribute("id", id);
+            delButton.addEventListener('click', function(e) {
+                deleteNote(delButton.getAttribute("id"));
+            }); 
+
             let noteNode = document.createElement('li');
             noteNode.innerHTML = name;
-            noteNode.setAttribute("id",id);
-            noteNode.setAttribute("class", "list");
+            noteNode.setAttribute("class", "item");
+
+            noteNode.append(delButton);
             noteDisplay.append(noteNode);
         }
     }
+}
+// Delete note
+function deleteNote(idOfDel) {
+    
+    for (let i = 0; i < noteList.length; i++) {
+        if (noteList[i].id == idOfDel) {
+            noteList.splice(i, 1);
+        }
+    }
+
+    renderList();
 }
 
 // Clears value of element
